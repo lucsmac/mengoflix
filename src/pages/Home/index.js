@@ -1,18 +1,16 @@
 import React from 'react';
-import Menu from './components/Menu';
-import BannerMain from './components/BannerMain';
-import Carousel from './components/Carousel';
-import Footer from './components/Footer';
-import data from './data/dados_iniciais.json'
-import Head from './components/Head';
+import Menu from '../../components/Menu';
+import BannerMain from '../../components/BannerMain';
+import Carousel from '../../components/Carousel';
+import Footer from '../../components/Footer';
+import data from '../../data/dados_iniciais.json'
+import Head from '../../components/Head';
 
-function App() {
+function Home() {
   const videos = data
 
-  console.log(videos)
-
   return (
-    <div style={{ background: '#141414' }}>
+    <>
       <Head title="Ínicio" description="A galeria de vídeos do mais querido" />
 
       <Menu />
@@ -26,12 +24,13 @@ function App() {
       {videos.categorias.map((categoria) => (
         <Carousel
           category={categoria}
+          key={categoria.titulo}
         />
       ))}
 
       <Footer />
-    </div>
+    </>
   );
 }
 
-export default App;
+export default Home;
