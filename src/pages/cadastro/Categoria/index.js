@@ -3,6 +3,7 @@ import LayoutDefault from '../../../components/LayoutDefault'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import FormField from '../../../components/FormField'
+import Button from '../../../components/Button'
 
 const Main = styled.main`
   background: var(--black);
@@ -36,24 +37,38 @@ const CadastroCategoria = () => {
     setCategoriaAtual(categoriaModel)
   }
 
+  React.useEffect(() => {
+    const url = 'http://localhost:8080/categorias'
+    const fetchData = async (url) => {
+      const response = await fetch(url)
+      const json = await response.json()
+      setCategorias([...json])
+    }
+    fetchData(url)
+  }, [])
+
   return (
     <>
       <LayoutDefault>
         <Main>
           <h1>Cadastro de categoria: {categoriaAtual.nome}</h1>
 
-          <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
 
             <FormField id="nome" value={categoriaAtual.nome} type="text" onChange={handleChange}>Nome</FormField>
 
-            <FormField textarea={true} id="descricao" value={categoriaAtual.descricao} type="text" onChange={handleChange}>Descrição</FormField>
+            <FormField id="descricao" value={categoriaAtual.descricao} type="textarea" onChange={handleChange}>Descrição</FormField>
 
             <FormField id="cor" value={categoriaAtual.cor} type="color" onChange={handleChange}>Cor</FormField>
 
-            <button>
+            <Button>
               Cadastrar
-            </button>
+            </Button>
           </form>
+
+          {!Boolean(categorias.length) && (<div>
+            <p>Loading</p>
+          </div>)}
 
           <ul>
             {categorias && categorias.map((categoria, index) => (

@@ -1,0 +1,10 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Front-end",
+      "descricao": "A melhor área do world",
+      "cor": "#cbd1ff"
+    }
+  ]
+}
