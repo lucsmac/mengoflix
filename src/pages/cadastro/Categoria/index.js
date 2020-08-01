@@ -38,13 +38,13 @@ const CadastroCategoria = () => {
   }
 
   React.useEffect(() => {
-    const url = 'http://localhost:8080/categorias'
-    const fetchData = async (url) => {
-      const response = await fetch(url)
+    const URL = window.location.hostname.includes('localhost') ? 'http://localhost:8080/categorias' : 'https://mengoflix.herokuapp.com/categorias'
+    const fetchData = async (URL) => {
+      const response = await fetch(URL)
       const json = await response.json()
       setCategorias([...json])
     }
-    fetchData(url)
+    fetchData(URL)
   }, [])
 
   return (
