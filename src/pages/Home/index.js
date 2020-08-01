@@ -1,19 +1,22 @@
 import React from 'react';
-import Menu from '../../components/Menu';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
-import Footer from '../../components/Footer';
-import data from '../../data/dados_iniciais.json'
+import categorias from '../../respositories/categorias'
 import Head from '../../components/Head';
+import LayoutDefault from '../../components/LayoutDefault';
 
 function Home() {
-  const videos = data
+  const [videos, setVideos] = React.useState([])
+
+  React.useEffect(() => {
+    categorias.getAllWithVideos().then((response) => {
+      setVideos(response)
+    }).catch((err) => console.log(err))
+  }, [])
 
   return (
-    <>
+    <LayoutDefault>
       <Head title="Ínicio" description="A galeria de vídeos do mais querido" />
-
-      <Menu />
 
       <BannerMain
         videoTitle="Sem filtro: Flamengo"
@@ -21,15 +24,15 @@ function Home() {
         url="https://www.youtube.com/watch?v=uDZPSAXsqhI"
       />
 
-      {videos.categorias.map((categoria) => (
+      {Boolean(videos.length === 0) && <div style={{ color: 'white' }}>Loading...</div>}
+
+      {Boolean(videos.length >= 1) && videos.map((categoria, index) => (
         <Carousel
+          key={`${categoria.titulo}-${index}`}
           category={categoria}
-          key={categoria.titulo}
         />
       ))}
-
-      <Footer />
-    </>
+    </LayoutDefault>
   );
 }
 

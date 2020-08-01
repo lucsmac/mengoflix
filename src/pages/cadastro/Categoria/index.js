@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import FormField from '../../../components/FormField'
 import Button from '../../../components/Button'
+import useForm from '../../../hooks/useForm'
+import Head from '../../../components/Head'
+import categoriasAPI from '../../../respositories/categorias'
 
 const Main = styled.main`
   background: var(--black);
@@ -19,67 +22,66 @@ const CadastroCategoria = () => {
     descricao: '',
     cor: '#000000'
   }
-  const [categorias, setCategorias] = React.useState([])
-  const [categoriaAtual, setCategoriaAtual] = React.useState(categoriaModel)
 
-  const handleChange = ({ target }) => {
-    setCategoriaAtual((categoriaAtual) => {
-      return {
-        ...categoriaAtual,
-        [target.id]: target.value
-      }
-    })
-  }
+  const [categorias, setCategorias] = React.useState([])
+
+  const { valorAtual, handleChange, clearForm } = useForm(categoriaModel)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setCategorias([...categorias, categoriaAtual])
-    setCategoriaAtual(categoriaModel)
+
+    categoriasAPI.create({
+      titulo: valorAtual.titulo,
+      descricao: valorAtual.descricao,
+      cor: valorAtual.cor
+    }).then((response) => {
+      categoriasAPI.getAll().then((allCategories) => setCategorias(allCategories))
+    })
+
+    clearForm()
   }
 
   React.useEffect(() => {
-    const URL = window.location.hostname.includes('localhost') ? 'http://localhost:8080/categorias' : 'https://mengoflix.herokuapp.com/categorias'
-    const fetchData = async (URL) => {
-      const response = await fetch(URL)
-      const json = await response.json()
-      setCategorias([...json])
-    }
-    fetchData(URL)
+    categoriasAPI.getAll().then((response) => setCategorias([...response]))
   }, [])
 
   return (
-    <>
-      <LayoutDefault>
-        <Main>
-          <h1>Cadastro de categoria: {categoriaAtual.nome}</h1>
+    <LayoutDefault>
+      <Head title="Nova categoria" description="Cadastrar uma nova categoria" />
 
-          <form onSubmit={handleSubmit}>
+      <Main>
+        <h1>Cadastro de categoria: {valorAtual.nome}</h1>
 
-            <FormField id="titulo" value={categoriaAtual.titulo} type="text" onChange={handleChange}>Nome</FormField>
+        <form onSubmit={handleSubmit}>
 
-            <FormField id="descricao" value={categoriaAtual.descricao} type="textarea" onChange={handleChange}>Descrição</FormField>
+          <FormField id="titulo" value={valorAtual.titulo} type="text" onChange={handleChange}>Nome</FormField>
 
-            <FormField id="cor" value={categoriaAtual.cor} type="color" onChange={handleChange}>Cor</FormField>
+          <FormField id="descricao" value={valorAtual.descricao} type="textarea" onChange={handleChange}>Descrição</FormField>
 
-            <Button>
-              Cadastrar
-            </Button>
-          </form>
+          <FormField id="cor" value={valorAtual.cor} type="color" onChange={handleChange}>Cor</FormField>
 
-          {!Boolean(categorias.length) && (<div>
-            <p>Loading</p>
-          </div>)}
+          <Button as="button">
+            Cadastrar
+          </Button>
+        </form>
 
-          <ul>
-            {categorias && categorias.map((categoria, index) => (
-              <li key={`${categoria.titulo}-${index}`}>{categoria.titulo}</li>
-            ))}
-          </ul>
+        {!Boolean(categorias.length) && (<div>
+          <p>Loading</p>
+        </div>)}
 
-          <Link to="/cadastro/video">Novo vídeo</Link>
-        </Main>
-      </LayoutDefault>
-    </>
+        <ul style={{ listStyle: 'none' }}>
+          <h2 style={{ fontWeight: 'bold' }}>Categorias atuais:</h2>
+          {categorias && categorias.map((categoria, index) => (
+            <li style={{ margin: '1rem', fontSize: '1rem' }} key={`${categoria.titulo}-${index}`}>- {categoria.titulo}</li>
+          ))}
+        </ul>
+
+        <div>
+          <p style={{ marginTop: '3.5rem' }}>Deseja criar um novo vídeo? </p>
+          <Button as={Link} to="/cadastro/categoria" style={{ margin: '.4rem 0' }}>Novo vídeo</Button>
+        </div>
+      </Main>
+    </LayoutDefault>
   )
 }
 

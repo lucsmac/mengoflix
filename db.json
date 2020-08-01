@@ -1,71 +1,96 @@
 {
   "categorias": [
     {
+      "id": 1,
       "titulo": "Conquistas",
-      "link": "https://www.alura.com.br/formacao-front-end",
-      "cor": "#DC1A28",
-      "link_extra": {
-        "text": "Conquistas históricas",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      },
-      "videos": [
-        {
-          "titulo": "FICOU MARCADO NA HISTÓRIA O FILME",
-          "url": "https://www.youtube.com/watch?v=iF5tzk9kwz0"
-        },
-        {
-          "titulo": "Flamengo 3x0 Liverpool | Mundial 1981",
-          "url": "https://www.youtube.com/watch?v=ogE5nVH8MVw"
-        },
-        {
-          "titulo": "Trajetória do Flamengo na Copa do Brasil 2013",
-          "url": "https://www.youtube.com/watch?v=vZX0L_iFMME"
-        },
-        {
-          "titulo": "Flamengo a trajetória do HEXA 2009",
-          "url": "https://www.youtube.com/watch?v=4G-iUrt7Es4"
-        }
-      ]
+      "descricao": "https://www.alura.com.br/formacao-front-end",
+      "cor": "#DC1A28"
     },
     {
+      "id": 2,
       "titulo": "História",
-      "cor": "#DC1A28",
-      "link_extra": {
-        "text": "A tragetória do mais querido",
-        "url": "https://www.alura.com.br/cursos-online-programacao"
-      },
-      "videos": [
-        {
-          "titulo": "A INCRÍVEL HISTÓRIA DO FLAMENGO",
-          "url": "https://www.youtube.com/watch?v=S66PawiI1Uw"
-        },
-        {
-          "titulo": "Todas as camisolas da história do Flamengo ⚽ 1895 - 2019",
-          "url": "https://www.youtube.com/watch?v=Iz2J7DXsu_8"
-        }
-      ]
+      "descricao": "https://www.alura.com.br/formacao-front-end",
+      "cor": "#DC1A28"
     },
     {
+      "id": 3,
       "titulo": "Ídolos",
-      "cor": "#DC1A28",
-      "link_extra": {
-        "text": "Os gols mais bonitos de Zico",
-        "url": "https://www.youtube.com/watch?v=k5b8-MgSVGk"
-      },
-      "videos": [
-        {
-          "titulo": "Os gols mais bonitos de Zico",
-          "url": "https://www.youtube.com/watch?v=k5b8-MgSVGk"
-        },
-        {
-          "titulo": "FILME • ERA JORGE JESUS • O Flamengo do Mister, melhor treinador da história do Mengão",
-          "url": "https://www.youtube.com/watch?v=x9PwjJErmgY"
-        },
-        {
-          "titulo": "O Maior Flamengo de Todos os Tempos!",
-          "url": "https://www.youtube.com/watch?v=Xijkcf8_7EY"
-        }
-      ]
+      "descricao": "https://www.alura.com.br/formacao-front-end",
+      "cor": "#DC1A28"
+    },
+    {
+      "titulo": "Gols",
+      "descricao": "Os melhores gols",
+      "cor": "#ff0000",
+      "id": 4
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "categoriaId": 1,
+      "titulo": "FICOU MARCADO NA HISTÓRIA O FILME",
+      "url": "https://www.youtube.com/watch?v=iF5tzk9kwz0"
+    },
+    {
+      "id": 2,
+      "categoriaId": 1,
+      "titulo": "Flamengo 3x0 Liverpool | Mundial 1981",
+      "url": "https://www.youtube.com/watch?v=ogE5nVH8MVw"
+    },
+    {
+      "id": 3,
+      "categoriaId": 1,
+      "titulo": "Trajetória do Flamengo na Copa do Brasil 2013",
+      "url": "https://www.youtube.com/watch?v=vZX0L_iFMME"
+    },
+    {
+      "id": 4,
+      "categoriaId": 1,
+      "titulo": "Flamengo a trajetória do HEXA 2009",
+      "url": "https://www.youtube.com/watch?v=4G-iUrt7Es4"
+    },
+    {
+      "id": 9,
+      "categoriaId": 3,
+      "titulo": "Os gols mais bonitos de Zico",
+      "url": "https://www.youtube.com/watch?v=k5b8-MgSVGk"
+    },
+    {
+      "id": 10,
+      "categoriaId": 3,
+      "titulo": "FILME • ERA JORGE JESUS • O Flamengo do Mister, melhor treinador da história do Mengão",
+      "url": "https://www.youtube.com/watch?v=x9PwjJErmgY"
+    },
+    {
+      "id": 11,
+      "categoriaId": 3,
+      "titulo": "O Maior Flamengo de Todos os Tempos!",
+      "url": "https://www.youtube.com/watch?v=Xijkcf8_7EY"
+    },
+    {
+      "titulo": "Gol de bicicleta do Arrascaeta (da arquibancada)",
+      "url": "https://www.youtube.com/watch?v=ytDCbiFSOD0",
+      "categoriaId": 4,
+      "id": 12
+    },
+    {
+      "titulo": "A INCRÍVEL HISTÓRIA DO FLAMENGO",
+      "url": "https://www.youtube.com/watch?v=S66PawiI1Uw",
+      "categoriaId": 2,
+      "id": 13
+    },
+    {
+      "titulo": "Todas as camisas da história do Flamengo ⚽ 1895 - 2019",
+      "url": "https://www.youtube.com/watch?v=Iz2J7DXsu_8",
+      "categoriaId": 2,
+      "id": 14
+    },
+    {
+      "titulo": "A HISTÓRIA DO FLAMENGO NA LIBERTADORES!! (1981-2019)",
+      "url": "https://www.youtube.com/watch?v=xoX4NlF5dI8",
+      "categoriaId": 2,
+      "id": 15
     }
   ]
 }
