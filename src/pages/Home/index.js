@@ -14,6 +14,9 @@ function Home() {
     }).catch((err) => console.log(err))
   }, [])
 
+  console.log(videos)
+  videos.length >= 1 && console.log(videos[0].videos)
+
   return (
     <LayoutDefault>
       <Head title="Ínicio" description="A galeria de vídeos do mais querido" />
