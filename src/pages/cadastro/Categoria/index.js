@@ -15,7 +15,7 @@ const Main = styled.main`
 const CadastroCategoria = () => {
 
   const categoriaModel = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '#000000'
   }
@@ -55,7 +55,7 @@ const CadastroCategoria = () => {
 
           <form onSubmit={handleSubmit}>
 
-            <FormField id="nome" value={categoriaAtual.nome} type="text" onChange={handleChange}>Nome</FormField>
+            <FormField id="titulo" value={categoriaAtual.titulo} type="text" onChange={handleChange}>Nome</FormField>
 
             <FormField id="descricao" value={categoriaAtual.descricao} type="textarea" onChange={handleChange}>Descrição</FormField>
 
@@ -72,7 +72,7 @@ const CadastroCategoria = () => {
 
           <ul>
             {categorias && categorias.map((categoria, index) => (
-              <li key={`${categoria.nome}-${index}`}>{categoria.nome}</li>
+              <li key={`${categoria.titulo}-${index}`}>{categoria.titulo}</li>
             ))}
           </ul>
 

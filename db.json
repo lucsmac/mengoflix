@@ -1,10 +1,71 @@
 {
   "categorias": [
     {
-      "id": 1,
-      "nome": "Front-end",
-      "descricao": "A melhor área do world",
-      "cor": "#cbd1ff"
+      "titulo": "Conquistas",
+      "link": "https://www.alura.com.br/formacao-front-end",
+      "cor": "#DC1A28",
+      "link_extra": {
+        "text": "Conquistas históricas",
+        "url": "https://www.alura.com.br/cursos-online-front-end"
+      },
+      "videos": [
+        {
+          "titulo": "FICOU MARCADO NA HISTÓRIA O FILME",
+          "url": "https://www.youtube.com/watch?v=iF5tzk9kwz0"
+        },
+        {
+          "titulo": "Flamengo 3x0 Liverpool | Mundial 1981",
+          "url": "https://www.youtube.com/watch?v=ogE5nVH8MVw"
+        },
+        {
+          "titulo": "Trajetória do Flamengo na Copa do Brasil 2013",
+          "url": "https://www.youtube.com/watch?v=vZX0L_iFMME"
+        },
+        {
+          "titulo": "Flamengo a trajetória do HEXA 2009",
+          "url": "https://www.youtube.com/watch?v=4G-iUrt7Es4"
+        }
+      ]
+    },
+    {
+      "titulo": "História",
+      "cor": "#DC1A28",
+      "link_extra": {
+        "text": "A tragetória do mais querido",
+        "url": "https://www.alura.com.br/cursos-online-programacao"
+      },
+      "videos": [
+        {
+          "titulo": "A INCRÍVEL HISTÓRIA DO FLAMENGO",
+          "url": "https://www.youtube.com/watch?v=S66PawiI1Uw"
+        },
+        {
+          "titulo": "Todas as camisolas da história do Flamengo ⚽ 1895 - 2019",
+          "url": "https://www.youtube.com/watch?v=Iz2J7DXsu_8"
+        }
+      ]
+    },
+    {
+      "titulo": "Ídolos",
+      "cor": "#DC1A28",
+      "link_extra": {
+        "text": "Os gols mais bonitos de Zico",
+        "url": "https://www.youtube.com/watch?v=k5b8-MgSVGk"
+      },
+      "videos": [
+        {
+          "titulo": "Os gols mais bonitos de Zico",
+          "url": "https://www.youtube.com/watch?v=k5b8-MgSVGk"
+        },
+        {
+          "titulo": "FILME • ERA JORGE JESUS • O Flamengo do Mister, melhor treinador da história do Mengão",
+          "url": "https://www.youtube.com/watch?v=x9PwjJErmgY"
+        },
+        {
+          "titulo": "O Maior Flamengo de Todos os Tempos!",
+          "url": "https://www.youtube.com/watch?v=Xijkcf8_7EY"
+        }
+      ]
     }
   ]
 }
